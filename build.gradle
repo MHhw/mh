@@ -1,0 +1,45 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.4'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+}
+
+group = 'SV'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.jsoup:jsoup:1.15.3'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	/* spring-boot-devtools 스프링 빌드 자동화 위해 의존성 추가 */
+	implementation 'org.springframework.boot:spring-boot-devtools:2.7.5'
+
+	/* json */
+//	implementation 'org.json:json:20220924'
+	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+
+	/* mybatis */
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+
+	/* jdbc https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 */
+	implementation 'com.oracle.database.jdbc:ojdbc8:21.7.0.0'
+	implementation 'com.oracle.ojdbc:orai18n:19.3.0.0'
+
+	/* swagger setting */
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation "io.springfox:springfox-swagger-ui:3.0.0"
+
+	/* selenium https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java */
+	implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.6.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
