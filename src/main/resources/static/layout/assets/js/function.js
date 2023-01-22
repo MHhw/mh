@@ -47,7 +47,7 @@ function makeDiv(data){
     html += "<button id='search' onClick=createProfile('"+divId+"')>생성</button>";
     html += "<button id='update' onClick=updateDiv('"+divId+"')>갱신</button>";
     html += "<button id='delete' onClick=btnRemove('"+divId+"')>삭제</button>";
-    html += "<nav><ul><li><a href='#characterEquipInfo'>www</a></li></ul></nav>";
+    //html += "<nav><ul><li><a href='#characterEquipInfo'>www</a></li></ul></nav>";
     html += "</div>";
     html += "</div>";
 

@@ -1,7 +1,7 @@
 
 html, body, div, span, h1, h2,
 p, a, img, ul, li, form, label, 
-table, article, footer, header, nav {
+table, article, footer, header, main, nav {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -10,7 +10,7 @@ table, article, footer, header, nav {
 	vertical-align: baseline;
 }
 
-article, footer, header, nav {
+article, footer, header, main, nav {
 	display: block;
 }
 
@@ -225,76 +225,6 @@ textarea {
 }
 
 
-/* Image */
-
-.image {
-    border-radius: 4px;
-    border: 0;
-    display: inline-block;
-    position: relative;
-}
-
-.image:before {
-    pointer-events: none;
-    background-image: url("../../images/overlay.png");
-    background-color: rgba(19, 21, 25, 0.5);
-    border-radius: 4px;
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    opacity: 0.5;
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-
-.image img {
-    border-radius: 4px;
-    display: block;
-}
-
-.image.left, .image.right {
-    max-width: 40%;
-}
-
-.image.left img, .image.right img {
-    width: 100%;
-}
-
-.image.left {
-    float: left;
-    padding: 0 1.5em 1em 0;
-    top: 0.25em;
-}
-
-.image.right {
-    float: right;
-    padding: 0 0 1em 1.5em;
-    top: 0.25em;
-}
-
-.image.fit {
-    display: block;
-    margin: 0 0 2rem 0;
-    width: 100%;
-}
-
-.image.fit img {
-    width: 100%;
-}
-
-.image.main {
-    display: block;
-    margin: 2.5rem 0;
-    width: 100%;
-}
-
-.image.main img {
-    width: 100%;
-}
-
-
 /* List */
 
 li {
@@ -396,42 +326,6 @@ ul.actions.fit li > * {
 
 ul.actions.fit.stacked {
     width: 100%;
-}
-
-
-/* Icons */
-
-ul.icons {
-    cursor: default;
-    list-style: none;
-    padding-left: 0;
-}
-
-ul.icons li {
-    display: inline-block;
-    padding: 0 0.75em 0 0;
-}
-
-ul.icons li:last-child {
-    padding-right: 0;
-}
-
-ul.icons li a {
-    border-radius: 100%;
-    box-shadow: inset 0 0 0 1px #ffffff;
-    display: inline-block;
-    height: 2.25rem;
-    line-height: 2.25rem;
-    text-align: center;
-    width: 2.25rem;
-}
-
-ul.icons li a:hover {
-    background-color: rgba(255, 255, 255, 0.075);
-}
-
-ul.icons li a:active {
-    background-color: rgba(255, 255, 255, 0.175);
 }
 
 
@@ -820,16 +714,6 @@ body.is-preload #header .content .inner {
     text-transform: uppercase;
 }
 
-/* left, right */
-.left{
-    float : left;
-    width:20%
-}
-
-.right {
-    float : right;
-    width:20%
-}
 
 /* Character Card */
 
@@ -877,11 +761,34 @@ body.is-preload #header .content .inner {
     width: 100px;
 }
 
-.characterDetailSub{
+.left {
+       float: left;
+       width: 10%;
+       height: 100vh;
+       background: #8977ad;
 }
 
-.characterDetailImg{
+.right {
+    float: left;
+    width: 10%;
+    height: 100vh;
+    background: #ece6cc;
 }
+
+#main{
+    box-sizing:inherit;
+    border-style: solid;
+    border-color: #532WER; /* 보라 */
+    border-width: 3px;
+}
+
+#characterEquipInfo{
+    float:left;
+    width:100%;
+    height:100%;
+    min-width:70vh;
+}
+
 
 .characterDetail{
     font-size: 0.6rem;
@@ -900,71 +807,57 @@ body.is-preload #header .content .inner {
     border-right-color: red;
 }
 
-.characterDetail1{
-    position: absolute; top: 235px; left: 310px; width: 50px; display: inline-block;
-}
-.characterDetail2{
-    position: absolute; top: 235px; left: 360px; width: 125px; display: inline-block;
-}
-.characterDetail3{
-    position: absolute; top: 235px; left: 500px; width: 85px; display: inline-block;
-}
-.characterDetail4{
-    position: absolute; top: 235px; left: 585px; width: 65px; display: inline-block;
-}
-.characterDetail5{
-    position: absolute; top: 235px; left: 660px; width: 85px; display: inline-block;
-}
-.characterDetail6{
-    position: absolute; top: 235px; left: 745px; width: 55px; display: inline-block;
-}
-.characterDetail7{
-    position:absolute; top:565px; left:310px; width: 300px; display: inline-block;
-}
-.characterDetail8{
-    position:absolute; top:235px; left:110px;
-}
-.characterDetail9{
-    position: absolute; top: 240px; left: 835px; width: 250px;
-}
-
-.characterDetail9 .detailA{
-width: 45px; display: inline-block;
-}
-.characterDetail9 .detailB{
-width: 45px; display: inline-block;
-}
-.characterDetail9 .detailC{
-width: 45px; display: inline-block;
-}
-.characterDetail9 .detailD{
-width: 45px; display: inline-block;
-}
-.characterDetail9 .detailE{
-width: 45px; display: inline-block;
-}
-
-.left{
-       float: left;
-       width: 10%;
-       height: 100vh;
-       background: #8977ad;
-}
-
-.right{
-    float: right;
-    width: 10%;
-    height: 100vh;
-    background: #ece6cc;
-}
-
 .characterDetailImg {
-    width: 200px;
-    height: 150px;
-    overflow: hidden;
+    float:left;
 }
 
 .characterDetailImg > img {
-    position: absolute;
-    width: 80%;
+    width:270px;
+    height:270px;
+}
+
+
+.characterDetail1{
+     top: 235px; left: 310px; width: 50px; display: inline-block;
+}
+.characterDetail2{
+     top: 235px; left: 360px; width: 125px; display: inline-block;
+}
+.characterDetail3{
+    top: 235px; left: 500px; width: 85px; display: inline-block;
+}
+.characterDetail4{
+    top: 235px; left: 585px; width: 65px; display: inline-block;
+}
+.characterDetail5{
+     top: 235px; left: 660px; width: 85px; display: inline-block;
+}
+.characterDetail6{
+    top: 235px; left: 745px; width: 55px; display: inline-block;
+}
+.characterDetail7{
+     top:565px; left:310px; width: 300px; display: inline-block;
+}
+.characterDetail8{
+
+}
+
+.characterDetail8 .detailA{
+width: 45px; display: inline-block;
+}
+.characterDetail8 .detailB{
+width: 45px; display: inline-block;
+}
+.characterDetail8 .detailC{
+width: 45px; display: inline-block;
+}
+.characterDetail8 .detailD{
+width: 45px; display: inline-block;
+}
+.characterDetail8 .detailE{
+width: 45px; display: inline-block;
+}
+
+.front{
+    opacity:0.3;
 }
