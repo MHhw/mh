@@ -32,6 +32,8 @@ function makeDiv(data){
         slideLength = Number($(".info:last")[0].id.split('_')[1]) + 1;
     }
 
+    console.log(d);
+
     var divId = data.characterInfo.name+'_'+slideLength;
 
     html = '';
@@ -56,10 +58,26 @@ function makeDiv(data){
 
 function callItem(data){
     console.log("callItem");
-    console.log(data);
 
-    var e = document.getElementById(data);
-    console.log(e);
+    var inputId = document.getElementById(data+"id").innerText;
+    console.log(inputId);
+
+    const url = 'http://localhost:8080/api/getMapleBasicInfo';
+    console.log(inputId, url);
+
+    axios.get( url, {params:{id:inputId, buttonChk:'조회'}})
+    .then(function(res) {
+        console.log(res);
+        console.log(res.data);
+        console.log(res.data.characterInfo.name);
+        html = '';
+        html += "<div id='ccc'>"
+        html += "<div>"+res.data.characterInfo.name+"</div>";
+        html += "<button id='delete' onClick=btnRemove('ccc')>삭제</button>";
+        html += "</div>"
+
+        $("#characterEquipInfo").append(html);
+    })
 
     location.href = '#characterEquipInfo';
 }
@@ -100,4 +118,5 @@ function updateDiv(data){
 function btnRemove(element){
     console.log("remove", element);
     document.getElementById(element).remove();
+    location.hash = '';
 }

@@ -768,86 +768,114 @@ body.is-preload #header .content .inner {
        background: #8977ad;
 }
 
-.right {
-    float: left;
-    width: 10%;
-    height: 100vh;
-    background: #ece6cc;
-}
+
+
+
 
 #main{
     box-sizing:inherit;
     border-style: solid;
-    border-color: #532WER; /* 보라 */
+    border-color: gray;
     border-width: 3px;
+    background-color: black;
 }
 
 #characterEquipInfo{
     float:left;
     width:100%;
-    height:100%;
     min-width:70vh;
 }
 
+.characterDetailSub{
+    margin: 30px;
+}
 
-.characterDetail{
-    font-size: 0.6rem;
+.profile{
+    width: 100%;
+}
 
-    border-top: 3px;
+.characterImg{
+    margin-left: 30px;
+
+    float:left;
+    width: 35%;
+
+    border-style: solid;
+    border-color: white;
+    border-width:3px;
+}
+
+.characterImg > img{
+    width: 280px;
+    height:280px;
+}
+
+.characterDetailEquip{
+    float:left;
+    margin-left: 30px;
+    width: 55%;
+}
+
+.equip{
+    margin-right : 7px;
+    margin-bottom : 7px;
+
+    border-top: 1.5px;
     border-top-style: solid;
-    border-top-color: red;
-    border-bottom: 3px;
+    border-top-color: green;
+    border-bottom: 1.5px;
     border-bottom-style: solid;
-    border-bottom-color: blue;
-    border-left: 3px;
-    border-left-style: dotted;
-    border-left-color: blue;
-    border-right: 3px;
+    border-bottom-color: yellow;
+    border-left: 1.5px;
+    border-left-style: solid;
+    border-left-color: yellow;
+    border-right: 1.5px;
     border-right-style: solid;
-    border-right-color: red;
+    border-right-color: green;
+    border-radius: 3px;
+    box-shadow: 2px 3px 3px 0px red;
 }
 
-.characterDetail1{
-     top: 235px; left: 310px; width: 50px; display: inline-block;
-}
-.characterDetail2{
-     top: 235px; left: 360px; width: 125px; display: inline-block;
-}
-.characterDetail3{
-    top: 235px; left: 500px; width: 85px; display: inline-block;
-}
-.characterDetail4{
-    top: 235px; left: 585px; width: 65px; display: inline-block;
-}
-.characterDetail5{
-     top: 235px; left: 660px; width: 85px; display: inline-block;
-}
-.characterDetail6{
-    top: 235px; left: 745px; width: 55px; display: inline-block;
-}
-.characterDetail7{
-     top:565px; left:310px; width: 300px; display: inline-block;
-}
-.characterDetail8{
-
+.equip > img{
+    width:45px;
+    height:45px;
 }
 
-.characterDetail8 .detailA{
-width: 45px; display: inline-block;
+.equipA {
+    float: left;
 }
-.characterDetail8 .detailB{
-width: 45px; display: inline-block;
+
+.equipB {
+    float: left;
 }
-.characterDetail8 .detailC{
-width: 45px; display: inline-block;
+
+.equipC {
+    float: left;
 }
-.characterDetail8 .detailD{
-width: 45px; display: inline-block;
+
+.equipD {
+    float: left;
 }
-.characterDetail8 .detailE{
-width: 45px; display: inline-block;
+
+.equipE {
+    float: left;
+}
+
+.back {
+    position:absolute;
 }
 
 .front{
     opacity:0.3;
 }
+
+.front1{
+    position: absolute;
+    opacity: 1;
+}
+
+.front2{
+    opacity:0.3;
+}
+
+
