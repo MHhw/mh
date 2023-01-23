@@ -807,16 +807,6 @@ body.is-preload #header .content .inner {
     border-right-color: red;
 }
 
-.characterDetailImg {
-    float:left;
-}
-
-.characterDetailImg > img {
-    width:270px;
-    height:270px;
-}
-
-
 .characterDetail1{
      top: 235px; left: 310px; width: 50px; display: inline-block;
 }
