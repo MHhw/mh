@@ -70,13 +70,14 @@ function callItem(data){
         console.log(res);
         console.log(res.data);
         console.log(res.data.characterInfo.name);
+
         html = '';
         html += "<div id='ccc'>"
         html += "<div>"+res.data.characterInfo.name+"</div>";
         html += "<button id='delete' onClick=btnRemove('ccc')>삭제</button>";
         html += "</div>"
 
-        $("#characterEquipInfo").append(html);
+        //$("#characterEquipInfo").append(html);
     })
 
     location.href = '#characterEquipInfo';
