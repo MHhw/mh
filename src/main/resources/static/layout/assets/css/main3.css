@@ -815,22 +815,21 @@ body.is-preload #header .content .inner {
 .equip{
     margin-right: 7px;
     margin-bottom: 7px;
-    border-top: 1.5px;
+    border-top: 3px;
     border-top-style: solid;
     border-top-color: green;
-    border-bottom: 1.5px;
+    border-bottom: 3px;
     border-bottom-style: solid;
     border-bottom-color: yellow;
-    border-left: 1.5px;
+    border-left: 3px;
     border-left-style: solid;
     border-left-color: yellow;
-    border-right: 1.5px;
+    border-right: 3px;
     border-right-style: solid;
     border-right-color: green;
     border-radius: 0px;
-    box-shadow: 2px 3px 3px 0px red;
-    width: 48px;
-    height: 48px;
+    width: 51px;
+    height: 51px;
 }
 
 .equip > img{
@@ -844,7 +843,7 @@ body.is-preload #header .content .inner {
 
 .equipB {
     float: left;
-    margin-top: 55px;
+    margin-top: 59px;
 }
 
 .equipC {
@@ -853,7 +852,7 @@ body.is-preload #header .content .inner {
 
 .equipD {
     float: left;
-    margin-top: 110px;
+    margin-top: 117px;
 }
 
 .equipE {
@@ -874,7 +873,7 @@ body.is-preload #header .content .inner {
 }
 
 .front2{
-    opacity:0.3;
+    opacity: 0.4;
     position: absolute;
 }
 
