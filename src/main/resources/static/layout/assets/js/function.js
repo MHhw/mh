@@ -70,14 +70,46 @@ function callItem(data){
         console.log(res);
         console.log(res.data);
         console.log(res.data.characterInfo.name);
+        console.log("--");
+        console.log(res.data.equipInfo);
+        console.log(res.data.equipInfo[0].equipCategory);
+
+        let equipList = res.data.equipInfo;
+
+        // 반복문으로 캐릭터 장비 채워넣기
+        for(let x=0; x<equipList.length;x++){
+            console.log(x);
+            console.log(equipList[x]);
+        }
+
+        // 반복문으로 캐릭터 스탯 채워넣기
+
+        $("#characterEquipInfo").empty();
 
         html = '';
-        html += "<div id='ccc'>"
-        html += "<div>"+res.data.characterInfo.name+"</div>";
-        html += "<button id='delete' onClick=btnRemove('ccc')>삭제</button>";
+
+        html += "<div class='characterDetailSub'>"
+		html +=     "<h2>캐릭터 프로필</h2>"
+		html += "</div>"
+        html += "<div class='profile'>"
+        html +=     "<div class='characterImg'>"
+        html +=         "<img src='"+res.data.characterInfo.img+"'alt='캐릭터'/>"
+        html +=     "</div>"
+
+        html +=     "<div class='characterDetailEquip'>"
+        html +=         "<div class='equipA'>"
+
+        html +=         "</div>"
+        html +=     "</div>"
+
         html += "</div>"
 
-        //$("#characterEquipInfo").append(html);
+//        html += "<div id='ccc'>"
+//        html += "<div>"+res.data.characterInfo.name+"</div>";
+//        html += "<button id='delete' onClick=btnRemove('ccc')>삭제</button>";
+//        html += "</div>"
+
+        $("#characterEquipInfo").append(html);
     })
 
     location.href = '#characterEquipInfo';
