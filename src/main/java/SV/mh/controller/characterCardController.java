@@ -81,6 +81,7 @@ public class characterCardController {
         int cnt = 0;
         log.info(id + " ---> " + cnt);
 
+
         String filePath = System.getProperty("user.dir")+File.separator+"data"+File.separator+id+".json";
 
         File f = new File(filePath);

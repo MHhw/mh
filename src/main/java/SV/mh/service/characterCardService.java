@@ -194,6 +194,9 @@ public class characterCardService implements characterCardServiceI{
                     Thread.sleep(500);
 
                     // get this equip element's info -> text
+                                                                                    //*[@id="container"]/div[2]/div[2]/div/div[2]/div[2]
+                                                                                    //*[@id="container"]/div[2]/div[2]/div/div[2]/div[2]/div/div[1]
+                                                                                    //*[@id="container"]/div[2]/div[2]/div/div[2]/div[2]/div/div[1]/div[2]
                     String equipElement = driver.findElement(By.xpath("//*[@id=\"container\"]/div[2]/div[2]/div/div[2]/div[2]")).getText();
                     // get this equip element's index -> index
                     String img = driver.findElement(By.xpath("//*[@id=\"container\"]/div[2]/div[2]/div/div[2]/div[1]/ul/li["+x+"]/img")).getAttribute("src");
@@ -219,10 +222,14 @@ public class characterCardService implements characterCardServiceI{
                     log.info("img: "+ img);
 
                     String[] infoSplit = equipElement.split("\n");
+                    log.info(equipElement);
                     log.info("장비이름:" + infoSplit[0]);
+                    log.info("next:" + infoSplit[1]);
 
-                    equip.put("equipName",infoSplit[0]);
+//                    equip.put("equipName",infoSplit[0]);
                     equip.put("equipImg",img);
+
+                    int weaponStr = 0;
 
                     for(int y=0; y<infoSplit.length;y++){
                         if (infoSplit[y].contains("장비분류 |")){
@@ -240,7 +247,18 @@ public class characterCardService implements characterCardServiceI{
                             equip.put("equipAdditionalPotential",infoSplit[y+1]);
                             y=y+1;
                         }
+                        else if (infoSplit[y].equals("소울옵션")){
+                            weaponStr = 1;
+                        }
                     }
+
+                    if(weaponStr == 0){
+                        equip.put("equipName",infoSplit[0]);
+                    }
+                    else if(weaponStr == 1){
+                        equip.put("equipName",infoSplit[0] + " " + infoSplit[1]);
+                    }
+
                     equip.put("equipNum", x);
                     e.add(equip);
 

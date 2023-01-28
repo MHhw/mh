@@ -1,351 +1,342 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-	<title>MapleStory Utility</title>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="layout/assets/css/main3.css" />
-</head>
-<!-- <body> <body class="is-preload"> -->
+	<head>
+		<title>MapleStory Utility</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="layout/assets/css/main3.css" />
+	</head>
 
-<body class="is-preload">
+	<body class="is-preload">
 
-<div class="left">ww</div>
+		<div class="left"></div>
 
-<!-- Wrapper -->
-<div id="wrapper">
+		<!-- Wrapper -->
+		<div id="wrapper">
 
-	<!-- Header -->
-	<header id="header">
-		<div class="content">
-			<div class="inner">
-				<h2>MapleStory Utility</h2>
-				<div class="character">
-					<div>
-						<p>캐릭터를 검색하세요.</br>(처음 검색 시 약 30초 소요)</br></p>
-						<input type="text" id="characterName" style="width:250px">
-						<input type="button" id="characterBtn" value="검색" onclick="send();">
+			<!-- Header -->
+			<header id="header">
+				<div class="content">
+					<div class="inner">
+						<h2>MapleStory Utility</h2>
+						<div class="character">
+							<div>
+								<p>캐릭터를 검색하세요.</br>(처음 검색 시 약 30초 소요)</br></p>
+								<input type="text" id="characterName" style="width:250px">
+								<input type="button" id="characterBtn" value="검색" onclick="send();">
+							</div>
+						</div>
 					</div>
+
+		<!--			 <nav> <ul> <li><a href='#characterEquipInfo' onclick="">test</a></li> </ul> </nav>-->
+					<nav> <ul> <li><a onclick="testF(1)">test1</a></li> </ul> </nav>
+					<nav> <ul> <li><a onclick="testF(2)">test2</a></li> </ul> </nav>
+					<div class="characterInfo"></div>
 				</div>
+
+				<nav>
+					<ul>
+						<li><a href="#guide">사용가이드</a></li>
+						<li><a href="#profile">프로필생성</a></li>
+						<li><a href="#searchItem">아이템찾기</a></li>
+						<li><a href="#guildScore">길드컨텐츠분석</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- Main -->
+			<div id="main">
+
+				<article id="characterEquipInfo">
+					<!--
+					<div class="characterDetailSub">
+						<h2>캐릭터 프로필</h2>
+					</div>
+					<div class="profile">
+						<div class="characterImg">
+							<img src="layout/images/pic1.jpg" alt='캐릭터'/>
+						</div>
+
+						<div class="characterDetailEquip">
+							<div class="equipA">
+								<div class="equip">
+									<img class="front1" id="ring1" src="layout/images/gif/gif5.gif" alt='반지1'/>
+									<img class="back"   id="ring1" src="layout/images/pic2.jpg" alt='반지1'/>
+									<img class="front2" id="ring1" src="layout/images/gif/gif10.gif" alt='반지1'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="ring2" src="layout/images/gif/gif5.gif" alt='반지1'/>
+									<img class="back"   id="ring2" src="layout/images/pic2.jpg" alt='반지1'/>
+									<img class="front2" id="ring2" src="layout/images/gif/gif10.gif" alt='반지1'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="ring3" src="layout/images/gif/gif5.gif" alt='반지2'/>
+									<img class="back"   id="ring3" src="layout/images/pic2.jpg" alt='반지2'/>
+									<img class="front2" id="ring3" src="layout/images/gif/gif10.gif" alt='반지2'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="ring4" src="layout/images/gif/gif5.gif" alt='반지3'/>
+									<img class="back"   id="ring4" src="layout/images/pic2.jpg" alt='반지3'/>
+									<img class="front2" id="ring4" src="layout/images/gif/gif10.gif" alt='반지3'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="grail" src="layout/images/gif/gif5.gif" alt='성배'/>
+									<img class="back"   id="grail" src="layout/images/pic2.jpg" alt='성배'/>
+									<img class="front2" id="grail" src="layout/images/gif/gif10.gif" alt='성배'/>
+									<div class="label">+22</div>
+								</div>
+							</div>
+							<div class="equipB">
+								<div class="equip">
+									<img class="front1" id="pendant1" src="layout/images/gif/gif5.gif" alt='펜던트1'/>
+									<img class="back"   id="pendant1" src="layout/images/pic2.jpg" alt='펜던트1'/>
+									<img class="front2" id="pendant1" src="layout/images/gif/gif10.gif" alt='펜던트1'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="pendant2" src="layout/images/gif/gif5.gif" alt='펜던트2'/>
+									<img class="back"   id="pendant2" src="layout/images/pic2.jpg" alt='펜던트2'/>
+									<img class="front2" id="pendant2" src="layout/images/gif/gif10.gif" alt='펜던트2'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="weapon" src="layout/images/gif/gif5.gif" alt='무기'/>
+									<img class="back"   id="weapon" src="layout/images/pic2.jpg" alt='무기'/>
+									<img class="front2" id="weapon" src="layout/images/gif/gif10.gif" alt='무기'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="belt" src="layout/images/gif/gif5.gif" alt='벨트'/>
+									<img class="back"   id="belt" src="layout/images/pic2.jpg" alt='벨트'/>
+									<img class="front2" id="belt" src="layout/images/gif/gif10.gif" alt='벨트'/>
+									<div class="label">+22</div>
+								</div>
+							</div>
+							<div class="equipC">
+								<div class="equip">
+									<img class="front1" id="hat" src="layout/images/gif/gif5.gif" alt='모자'/>
+									<img class="back"   id="hat" src="layout/images/pic2.jpg" alt='모자'/>
+									<img class="front2" id="hat" src="layout/images/gif/gif10.gif" alt='모자'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="face" src="layout/images/gif/gif5.gif" alt='얼굴장식'/>
+									<img class="back"   id="face" src="layout/images/pic2.jpg" alt='얼굴장식'/>
+									<img class="front2" id="face" src="layout/images/gif/gif10.gif" alt='얼굴장식'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="eye" src="layout/images/gif/gif5.gif" alt='눈장식'/>
+									<img class="back"   id="eye" src="layout/images/pic2.jpg" alt='눈장식'/>
+									<img class="front2" id="eye" src="layout/images/gif/gif10.gif" alt='눈장식'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="clothes1" src="layout/images/gif/gif5.gif" alt='상의'/>
+									<img class="back"   id="clothes1" src="layout/images/pic2.jpg" alt='상의'/>
+									<img class="front2" id="clothes1" src="layout/images/gif/gif10.gif" alt='상의'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="clothes2" src="layout/images/gif/gif5.gif" alt='하의'/>
+									<img class="back"   id="clothes2" src="layout/images/pic2.jpg" alt='하의'/>
+									<img class="front2" id="clothes2" src="layout/images/gif/gif10.gif" alt='하의'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="shoes" src="layout/images/gif/gif5.gif" alt='신발'/>
+									<img class="back"   id="shoes" src="layout/images/pic2.jpg" alt='신발'/>
+									<img class="front2" id="shoes" src="layout/images/gif/gif10.gif" alt='신발'/>
+									<div class="label">+22</div>
+								</div>
+							</div>
+							<div class="equipD">
+								<div class="equip">
+									<img class="front1" id="ear" src="layout/images/gif/gif5.gif" alt='귀걸이'/>
+									<img class="back"   id="ear" src="layout/images/pic2.jpg" alt='귀걸이'/>
+									<img class="front2" id="ear" src="layout/images/gif/gif10.gif" alt='귀걸이'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="shoulder" src="layout/images/gif/gif5.gif" alt='어깨장식'/>
+									<img class="back"   id="shoulder" src="layout/images/pic2.jpg" alt='어깨장식'/>
+									<img class="front2" id="shoulder" src="layout/images/gif/gif10.gif" alt='어깨장식'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="gloves" src="layout/images/gif/gif5.gif" alt='장갑'/>
+									<img class="back"   id="gloves" src="layout/images/pic2.jpg" alt='장갑'/>
+									<img class="front2" id="gloves" src="layout/images/gif/gif10.gif" alt='장갑'/>
+									<div class="label">+22</div>
+								</div>
+							</div>
+							<div class="equipE">
+								<div class="equip">
+									<img class="front1" id="emblem" src="layout/images/gif/gif5.gif" alt='엠블렘'/>
+									<img class="back"   id="emblem" src="layout/images/pic2.jpg" alt='엠블렘'/>
+									<img class="front2" id="emblem" src="layout/images/gif/gif10.gif" alt='엠블렘'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="badge" src="layout/images/gif/gif5.gif" alt='뱃지'/>
+									<img class="back"   id="badge" src="layout/images/pic2.jpg" alt='뱃지'/>
+									<img class="front2" id="badge" src="layout/images/gif/gif10.gif" alt='뱃지'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="medal" src="layout/images/gif/gif5.gif" alt='훈장'/>
+									<img class="back"   id="medal" src="layout/images/pic2.jpg" alt='훈장'/>
+									<img class="front2" id="medal" src="layout/images/gif/gif10.gif" alt='훈장'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="subWeapon" src="layout/images/gif/gif5.gif" alt='보조장비'/>
+									<img class="back"   id="subWeapon" src="layout/images/pic2.jpg" alt='보조장비'/>
+									<img class="front2" id="subWeapon" src="layout/images/gif/gif10.gif" alt='보조장비'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="cape" src="layout/images/gif/gif5.gif" alt='망토'/>
+									<img class="back"   id="cape" src="layout/images/pic2.jpg" alt='망토'/>
+									<img class="front2" id="cape" src="layout/images/gif/gif10.gif" alt='망토'/>
+									<div class="label">+22</div>
+								</div>
+								<div class="equip">
+									<img class="front1" id="heart" src="layout/images/gif/gif5.gif" alt='심장'/>
+									<img class="back"   id="heart" src="layout/images/pic2.jpg" alt='심장'/>
+									<img class="front2" id="heart" src="layout/images/gif/gif10.gif" alt='심장'/>
+									<div class="label">+22</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="characterStat">
+						<div class="stat">
+							<div class="statLabel">
+								<div class="characterDetail">이름</div>
+								<div class="characterDetail">직업</div>
+								<div class="characterDetail">길드</div>
+								<div class="characterDetail">인기도</div>
+								<div class="characterDetail">스탯<br/>공격력</div>
+								<div class="characterDetail">HP</div>
+								<div class="characterDetail">MP</div>
+								<div class="characterDetail">STR</div>
+								<div class="characterDetail">DEX</div>
+								<div class="characterDetail">INT</div>
+								<div class="characterDetail">LUK</div>
+							</div>
+							<div class="statValue">
+								<div class="characterDetail">삐약이당</div>
+								<div class="characterDetail">바이퍼</div>
+								<div class="characterDetail">Free</div>
+								<div class="characterDetail">2</div>
+								<div class="characterDetail">9억 9999만 9999 <br/>~ 9억 9999만 9999</div>
+								<div class="characterDetail">55709</div>
+								<div class="characterDetail">27428</div>
+								<div class="characterDetail">15968</div>
+								<div class="characterDetail">2862</div>
+								<div class="characterDetail">2091</div>
+								<div class="characterDetail">1648</div>
+							</div>
+						</div>
+
+						<div class="detailStatLeft">
+							<div class="detailStatLeftLabel">
+								<div class="characterDetail">데미지</div>
+								<div class="characterDetail">최종 데미지</div>
+								<div class="characterDetail">방어율 무시</div>
+								<div class="characterDetail">크리티컬확률</div>
+								<div class="characterDetail">크리 데미지</div>
+								<div class="characterDetail">공격력</div>
+								<div class="characterDetail">상태이상내성</div>
+								<div class="characterDetail">방어력</div>
+								<div class="characterDetail">이동속도</div>
+								<div class="characterDetail">점프력</div>
+							</div>
+							<div class="detailStatLeftValue">
+								<div class="characterDetail">61%</div>
+								<div class="characterDetail">24.30%</div>
+								<div class="characterDetail">86.22%</div>
+								<div class="characterDetail">100%</div>
+								<div class="characterDetail">51.00%</div>
+								<div class="characterDetail">1497</div>
+								<div class="characterDetail">55</div>
+								<div class="characterDetail">34266</div>
+								<div class="characterDetail">147%</div>
+								<div class="characterDetail">123%</div>
+							</div>
+						</div>
+
+						<div class="detailStatRight">
+							<div class="detailStatRightLabel">
+								<div class="characterDetail">보스데미지</div>
+								<div class="characterDetail">버프지속시간</div>
+								<div class="characterDetail">아이템드롭률</div>
+								<div class="characterDetail">메소 획득량</div>
+								<div class="characterDetail">공격 속도</div>
+								<div class="characterDetail">마력</div>
+								<div class="characterDetail">스탠스</div>
+								<div class="characterDetail">스타포스</div>
+								<div class="characterDetail">아케인포스</div>
+							</div>
+
+							<div class="detailStatRightValue">
+								<div class="characterDetail">144%</div>
+								<div class="characterDetail">24%</div>
+								<div class="characterDetail">0%</div>
+								<div class="characterDetail">4%</div>
+								<div class="characterDetail">7단계</div>
+								<div class="characterDetail">380</div>
+								<div class="characterDetail">100%</div>
+								<div class="characterDetail">189</div>
+								<div class="characterDetail">780</div>
+							</div>
+						</div>
+
+						<div class="ability">
+							<div class="characterDetail">어빌리티</div>
+							<div class="characterDetail">일반 몬스터 공격 시 데미지 10% 증가</div>
+							<div class="characterDetail">LUK 19 증가, INT 10 증가</div>
+							<div class="characterDetail">DEX 20 증가, STR 10 증가</div>
+						</div>
+
+					</div>
+					-->
+					<!--
+					<div class="test">
+						<img class="testb" id="ring1" src="layout/images/gif/gif10.gif" alt="반지1">
+						<img class="testc" id="ring1" src="layout/images/pic2.jpg" alt="반지1">
+						<img class="testd" id="ring1" src="layout/images/gif/gif5.gif" alt="반지1">
+						<div class="testa">+22</div>
+						<div class="testf"></div>
+					</div>
+					-->
+				</article>
 			</div>
 
-			<!-- <nav> <ul> <li><a href='#characterEquipInfo'>test</a></li> </ul> </nav> -->
-
-			<div class="characterInfo">
-
-			</div>
-
+			<!-- Footer -->
+			<footer id="footer">
+				<p class="copyright">&copy; made in 명회 </p>
+			</footer>
 		</div>
 
-		<nav>
-			<ul>
-				<li><a href="#guide">사용가이드</a></li>
-				<li><a href="#profile">프로필생성</a></li>
-				<li><a href="#searchItem">아이템찾기</a></li>
-				<li><a href="#guildScore">길드컨텐츠분석</a></li>
-			</ul>
-		</nav>
-	</header>
+		<!--<div class="right">ww</div>-->
+		<!-- BG -->
+		<div id="bg"></div>
 
-	<!-- Main -->
-	<div id="main">
+		<!-- Scripts -->
 
-		<article id="characterEquipInfo">
-			<!--
-			<div class="characterDetailSub">
-				<h2>캐릭터 프로필</h2>
-			</div>
-			<div class="profile">
-				<div class="characterImg">
-					<img src="layout/images/pic1.jpg" alt='캐릭터'/>
-				</div>
+		<!--<script src="layout/assets/js/jquery.min.js"></script>-->
 
-				<div class="characterDetailEquip">
-					<div class="equipA">
-						<div class="equip">
-							<img class="front1" id="ring1" src="layout/images/gif/gif5.gif" alt='반지1'/>
-							<img class="back"   id="ring1" src="layout/images/pic2.jpg" alt='반지1'/>
-							<img class="front2" id="ring1" src="layout/images/gif/gif10.gif" alt='반지1'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="ring2" src="layout/images/gif/gif5.gif" alt='반지1'/>
-							<img class="back"   id="ring2" src="layout/images/pic2.jpg" alt='반지1'/>
-							<img class="front2" id="ring2" src="layout/images/gif/gif10.gif" alt='반지1'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="ring3" src="layout/images/gif/gif5.gif" alt='반지2'/>
-							<img class="back"   id="ring3" src="layout/images/pic2.jpg" alt='반지2'/>
-							<img class="front2" id="ring3" src="layout/images/gif/gif10.gif" alt='반지2'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="ring4" src="layout/images/gif/gif5.gif" alt='반지3'/>
-							<img class="back"   id="ring4" src="layout/images/pic2.jpg" alt='반지3'/>
-							<img class="front2" id="ring4" src="layout/images/gif/gif10.gif" alt='반지3'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="grail" src="layout/images/gif/gif5.gif" alt='성배'/>
-							<img class="back"   id="grail" src="layout/images/pic2.jpg" alt='성배'/>
-							<img class="front2" id="grail" src="layout/images/gif/gif10.gif" alt='성배'/>
-							<div class="label">+22</div>
-						</div>
-					</div>
-					<div class="equipB">
-						<div class="equip">
-							<img class="front1" id="pendant1" src="layout/images/gif/gif5.gif" alt='펜던트1'/>
-							<img class="back"   id="pendant1" src="layout/images/pic2.jpg" alt='펜던트1'/>
-							<img class="front2" id="pendant1" src="layout/images/gif/gif10.gif" alt='펜던트1'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="pendant2" src="layout/images/gif/gif5.gif" alt='펜던트2'/>
-							<img class="back"   id="pendant2" src="layout/images/pic2.jpg" alt='펜던트2'/>
-							<img class="front2" id="pendant2" src="layout/images/gif/gif10.gif" alt='펜던트2'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="weapon" src="layout/images/gif/gif5.gif" alt='무기'/>
-							<img class="back"   id="weapon" src="layout/images/pic2.jpg" alt='무기'/>
-							<img class="front2" id="weapon" src="layout/images/gif/gif10.gif" alt='무기'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="belt" src="layout/images/gif/gif5.gif" alt='벨트'/>
-							<img class="back"   id="belt" src="layout/images/pic2.jpg" alt='벨트'/>
-							<img class="front2" id="belt" src="layout/images/gif/gif10.gif" alt='벨트'/>
-							<div class="label">+22</div>
-						</div>
-					</div>
-					<div class="equipC">
-						<div class="equip">
-							<img class="front1" id="hat" src="layout/images/gif/gif5.gif" alt='모자'/>
-							<img class="back"   id="hat" src="layout/images/pic2.jpg" alt='모자'/>
-							<img class="front2" id="hat" src="layout/images/gif/gif10.gif" alt='모자'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="face" src="layout/images/gif/gif5.gif" alt='얼굴장식'/>
-							<img class="back"   id="face" src="layout/images/pic2.jpg" alt='얼굴장식'/>
-							<img class="front2" id="face" src="layout/images/gif/gif10.gif" alt='얼굴장식'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="eye" src="layout/images/gif/gif5.gif" alt='눈장식'/>
-							<img class="back"   id="eye" src="layout/images/pic2.jpg" alt='눈장식'/>
-							<img class="front2" id="eye" src="layout/images/gif/gif10.gif" alt='눈장식'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="clothes1" src="layout/images/gif/gif5.gif" alt='상의'/>
-							<img class="back"   id="clothes1" src="layout/images/pic2.jpg" alt='상의'/>
-							<img class="front2" id="clothes1" src="layout/images/gif/gif10.gif" alt='상의'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="clothes2" src="layout/images/gif/gif5.gif" alt='하의'/>
-							<img class="back"   id="clothes2" src="layout/images/pic2.jpg" alt='하의'/>
-							<img class="front2" id="clothes2" src="layout/images/gif/gif10.gif" alt='하의'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="shoes" src="layout/images/gif/gif5.gif" alt='신발'/>
-							<img class="back"   id="shoes" src="layout/images/pic2.jpg" alt='신발'/>
-							<img class="front2" id="shoes" src="layout/images/gif/gif10.gif" alt='신발'/>
-							<div class="label">+22</div>
-						</div>
-					</div>
-					<div class="equipD">
-						<div class="equip">
-							<img class="front1" id="ear" src="layout/images/gif/gif5.gif" alt='귀걸이'/>
-							<img class="back"   id="ear" src="layout/images/pic2.jpg" alt='귀걸이'/>
-							<img class="front2" id="ear" src="layout/images/gif/gif10.gif" alt='귀걸이'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="shoulder" src="layout/images/gif/gif5.gif" alt='어깨장식'/>
-							<img class="back"   id="shoulder" src="layout/images/pic2.jpg" alt='어깨장식'/>
-							<img class="front2" id="shoulder" src="layout/images/gif/gif10.gif" alt='어깨장식'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="gloves" src="layout/images/gif/gif5.gif" alt='장갑'/>
-							<img class="back"   id="gloves" src="layout/images/pic2.jpg" alt='장갑'/>
-							<img class="front2" id="gloves" src="layout/images/gif/gif10.gif" alt='장갑'/>
-							<div class="label">+22</div>
-						</div>
-					</div>
-					<div class="equipE">
-						<div class="equip">
-							<img class="front1" id="emblem" src="layout/images/gif/gif5.gif" alt='엠블렘'/>
-							<img class="back"   id="emblem" src="layout/images/pic2.jpg" alt='엠블렘'/>
-							<img class="front2" id="emblem" src="layout/images/gif/gif10.gif" alt='엠블렘'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="badge" src="layout/images/gif/gif5.gif" alt='뱃지'/>
-							<img class="back"   id="badge" src="layout/images/pic2.jpg" alt='뱃지'/>
-							<img class="front2" id="badge" src="layout/images/gif/gif10.gif" alt='뱃지'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="medal" src="layout/images/gif/gif5.gif" alt='훈장'/>
-							<img class="back"   id="medal" src="layout/images/pic2.jpg" alt='훈장'/>
-							<img class="front2" id="medal" src="layout/images/gif/gif10.gif" alt='훈장'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="subWeapon" src="layout/images/gif/gif5.gif" alt='보조장비'/>
-							<img class="back"   id="subWeapon" src="layout/images/pic2.jpg" alt='보조장비'/>
-							<img class="front2" id="subWeapon" src="layout/images/gif/gif10.gif" alt='보조장비'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="cape" src="layout/images/gif/gif5.gif" alt='망토'/>
-							<img class="back"   id="cape" src="layout/images/pic2.jpg" alt='망토'/>
-							<img class="front2" id="cape" src="layout/images/gif/gif10.gif" alt='망토'/>
-							<div class="label">+22</div>
-						</div>
-						<div class="equip">
-							<img class="front1" id="heart" src="layout/images/gif/gif5.gif" alt='심장'/>
-							<img class="back"   id="heart" src="layout/images/pic2.jpg" alt='심장'/>
-							<img class="front2" id="heart" src="layout/images/gif/gif10.gif" alt='심장'/>
-							<div class="label">+22</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="characterStat">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="layout/assets/js/browser.min.js"></script>
+		<script src="layout/assets/js/breakpoints.min.js"></script>
+		<script src="layout/assets/js/main1.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="layout/assets/js/function.js"></script>
+	</body>
 
-				<div class="stat">
-					<div class="statLabel">
-						<div class="characterDetail">이름</div>
-						<div class="characterDetail">직업</div>
-						<div class="characterDetail">길드</div>
-						<div class="characterDetail">인기도</div>
-						<div class="characterDetail">스탯<br/>공격력</div>
-						<div class="characterDetail">HP</div>
-						<div class="characterDetail">MP</div>
-						<div class="characterDetail">STR</div>
-						<div class="characterDetail">DEX</div>
-						<div class="characterDetail">INT</div>
-						<div class="characterDetail">LUK</div>
-					</div>
-					<div class="statValue">
-						<div class="characterDetail">삐약이당</div>
-						<div class="characterDetail">바이퍼</div>
-						<div class="characterDetail">Free</div>
-						<div class="characterDetail">2</div>
-						<div class="characterDetail">9억 9999만 9999 <br/>~ 9억 9999만 9999</div>
-						<div class="characterDetail">55709</div>
-						<div class="characterDetail">27428</div>
-						<div class="characterDetail">15968</div>
-						<div class="characterDetail">2862</div>
-						<div class="characterDetail">2091</div>
-						<div class="characterDetail">1648</div>
-					</div>
-				</div>
-
-				<div class="detailStatLeft">
-					<div class="detailStatLeftLabel">
-						<div class="characterDetail">데미지</div>
-						<div class="characterDetail">최종 데미지</div>
-						<div class="characterDetail">방어율 무시</div>
-						<div class="characterDetail">크리티컬확률</div>
-						<div class="characterDetail">크리 데미지</div>
-						<div class="characterDetail">공격력</div>
-						<div class="characterDetail">상태이상내성</div>
-						<div class="characterDetail">방어력</div>
-						<div class="characterDetail">이동속도</div>
-						<div class="characterDetail">점프력</div>
-					</div>
-					<div class="detailStatLeftValue">
-						<div class="characterDetail">61%</div>
-						<div class="characterDetail">24.30%</div>
-						<div class="characterDetail">86.22%</div>
-						<div class="characterDetail">100%</div>
-						<div class="characterDetail">51.00%</div>
-						<div class="characterDetail">1497</div>
-						<div class="characterDetail">55</div>
-						<div class="characterDetail">34266</div>
-						<div class="characterDetail">147%</div>
-						<div class="characterDetail">123%</div>
-					</div>
-				</div>
-
-				<div class="detailStatRight">
-					<div class="detailStatRightLabel">
-						<div class="characterDetail">보스데미지</div>
-						<div class="characterDetail">버프지속시간</div>
-						<div class="characterDetail">아이템드롭률</div>
-						<div class="characterDetail">메소 획득량</div>
-						<div class="characterDetail">공격 속도</div>
-						<div class="characterDetail">마력</div>
-						<div class="characterDetail">스탠스</div>
-						<div class="characterDetail">스타포스</div>
-						<div class="characterDetail">아케인포스</div>
-					</div>
-
-					<div class="detailStatRightValue">
-						<div class="characterDetail">144%</div>
-						<div class="characterDetail">24%</div>
-						<div class="characterDetail">0%</div>
-						<div class="characterDetail">4%</div>
-						<div class="characterDetail">7단계</div>
-						<div class="characterDetail">380</div>
-						<div class="characterDetail">100%</div>
-						<div class="characterDetail">189</div>
-						<div class="characterDetail">780</div>
-					</div>
-				</div>
-
-				<div class="ability">
-					<div class="characterDetail">어빌리티</div>
-					<div class="characterDetail">일반 몬스터 공격 시 데미지 10% 증가</div>
-					<div class="characterDetail">LUK 19 증가, INT 10 증가</div>
-					<div class="characterDetail">DEX 20 증가, STR 10 증가</div>
-				</div>
-
-			</div>
-			-->
-			<!--
-			<div class="test">
-				<img class="testb" id="ring1" src="layout/images/gif/gif10.gif" alt="반지1">
-				<img class="testc" id="ring1" src="layout/images/pic2.jpg" alt="반지1">
-				<img class="testd" id="ring1" src="layout/images/gif/gif5.gif" alt="반지1">
-				<div class="testa">+22</div>
-				<div class="testf"></div>
-			</div>
-			-->
-
-		</article>
-	</div>
-
-	<!-- Footer -->
-	<footer id="footer">
-		<p class="copyright">&copy; made in 명회 </p>
-	</footer>
-</div>
-
-<!--<div class="right">ww</div>-->
-<!-- BG -->
-<div id="bg"></div>
-
-<!-- Scripts -->
-
-<!--<script src="layout/assets/js/jquery.min.js"></script>-->
-
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="layout/assets/js/browser.min.js"></script>
-<script src="layout/assets/js/breakpoints.min.js"></script>
-<script src="layout/assets/js/main1.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-<script src="layout/assets/js/function.js"></script>
-<!--
-<script src="layout/assets/js/main.js"></script>
-
--->
-</body>
 </html>
