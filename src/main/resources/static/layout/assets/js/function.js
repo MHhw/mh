@@ -129,6 +129,7 @@ function testF(values){
 
 
             if(listArr[x] == equipList[cnt].equipNum){
+
                 if ( (equipList[cnt].equipNum == 1)  || (equipList[cnt].equipNum == 6)  || (equipList[cnt].equipNum == 11) || (equipList[cnt].equipNum == 16) || (equipList[cnt].equipNum == 21) ){
                      equipA +=  "<div class='equip'>"
                      equipA +=      "<img class='front1' id='"+equipList[cnt].equipCategory+"' src='"+potentialA+"' alt='이미지'/>"
@@ -231,7 +232,6 @@ function testF(values){
         // 반복문으로 캐릭터 스탯 채워넣기
 
         $("#characterEquipInfo").empty();
-
         html = '';
 
         html += "<div class='characterDetailSub'>"
@@ -345,6 +345,7 @@ function testF(values){
         html +=         "<div class='characterDetail'>"+abilitySplit[2]+"</div>"
         html +=     "</div>"
         html += "</div>"
+        html += "<button id='saveGif' onClick=btnSaveGif()>다운로드</button>";
 
         $("#characterEquipInfo").append(html);
     })
@@ -352,6 +353,10 @@ function testF(values){
     location.href = '#characterEquipInfo';
 }
 
+function btnSaveGif(){
+    console.log("^^");
+
+}
 
 function callItem(data){
     console.log("callItem");
