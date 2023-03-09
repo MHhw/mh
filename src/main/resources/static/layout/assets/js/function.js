@@ -10,7 +10,7 @@ function send() {
 
     document.getElementById("characterName").value = '';
 
-    const url = 'http://localhost:8080/api/getMapleBasicInfo';
+    const url = 'https://localhost:8080/api/getMapleBasicInfo';
     console.log(inputId, url);
 
     axios.get( url, {params:{id:inputId, buttonChk:'조회'}})
@@ -56,6 +56,95 @@ function makeDiv(data){
     $(".characterInfo").append(html);
 }
 
+// ******************************************************** //
+// test //
+
+// 화면캡쳐(video)를 시작하는 함수
+async function startCapture() {
+    const videoElement = document.querySelector('#video')
+    const startButton = document.querySelector('#start')
+    const stopButton = document.querySelector('#stop')
+    const snapshotButton = document.querySelector('#snapshot')
+
+    try {
+        const displayMediaOptions = { audio: false
+                                    , video: { width: 1280, height: 720 }
+                                     }
+        const captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
+        videoElement.srcObject = captureStream
+        startButton.disabled = true
+        stopButton.disabled = false
+        snapshotButton.disabled = false
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+// 화면캡쳐를 중지하는 함수
+function stopCapture() {
+    const videoElement = document.querySelector('#video')
+    const startButton = document.querySelector('#start')
+    const stopButton = document.querySelector('#stop')
+    const snapshotButton = document.querySelector('#snapshot')
+
+    const tracks = videoElement.srcObject.getTracks()
+    tracks.forEach((track) => track.stop())
+    videoElement.srcObject = null
+    startButton.disabled = false
+    stopButton.disabled = true
+    snapshotButton.disabled = true
+}
+
+// 스냅샷을 찍는 함수
+async function takeSnapshot() {
+    const videoElement = document.querySelector('#video')
+    const startButton = document.querySelector('#start')
+    const stopButton = document.querySelector('#stop')
+    const snapshotButton = document.querySelector('#snapshot')
+
+    const track = videoElement.srcObject.getVideoTracks()[0]
+    const imageCapture = new ImageCapture(track)
+    const image = await imageCapture.grabFrame()
+}
+
+//startButton.addEventListener('click', startCapture)
+//stopButton.addEventListener('click', stopCapture)
+//snapshotButton.addEventListener('click', takeSnapshot)
+
+// ******************************************************** //
+
+function testFF(values){
+
+    console.log("makeVideo test");
+
+//    equipA += "<img class='front1' id='"+equipList[cnt].equipCategory+"' src='layout/images/gif/gif5.gif' alt='이미지'/>"
+
+    $("#characterEquipInfo2").empty();
+    html = '';
+
+    html += "<div id='characterDetailSub'>"
+    html +=     "<h2>캐릭터 프로필</h2>"
+    html +=     "<div class='characterStat'>"
+    html +=     "<img src='layout/images/gif/gif5.gif' alt='이미지'/>"
+    html +=     "<img src='layout/images/pic1.jpg' alt='이미지'/>"
+    html +=     "<img src='layout/images/weapon.png' alt='이미지'/>"
+    html +=     "<img src='layout/images/test.gif' alt='이미지'/>"
+    html +=     "<div class='characterDetail'>wwwww</div>"
+    html +=     "</div>"
+    html += "</div>"
+    html += "<button id='saveGif' onClick=screenshot()>다운로드</button>";
+    html += "<button id='closed' onClick=closed()>close</button>";
+
+    html += "<video id='video' autoplay></video>";
+    html += "<button id='start' onClick=startCapture()>start</button>";
+    html += "<button id='stop' onClick=stopCapture() disabled>stop</button>";
+    html += "<button id='snapshot' onClick=takeSnapshot() disabled>snapshot</button>";
+
+    $("#characterEquipInfo2").append(html);
+
+    location.href = '#characterEquipInfo2';
+}
+
 function testF(values){
      console.log("callItem");
 
@@ -69,7 +158,7 @@ function testF(values){
 
     console.log(inputId);
 
-    const url = 'http://localhost:8080/api/getMapleBasicInfo';
+    const url = 'https://localhost:8080/api/getMapleBasicInfo';
     console.log(inputId, url);
 
     axios.get( url, {params:{id:inputId, buttonChk:'조회'}})
@@ -233,11 +322,12 @@ function testF(values){
 
         $("#characterEquipInfo").empty();
         html = '';
+        html += "<div id = 'characterAll'>"
 
-        html += "<div class='characterDetailSub'>"
+        html += "<div class='characterDetailSub' id='characterDetailSub'>"
         html +=     "<h2>캐릭터 프로필</h2>"
         html += "</div>"
-        html += "<div class='profile'>"
+        html += "<div class='profile' id='profile'>"
         html +=     "<div class='characterImg'>"
         html +=         "<img src='"+res.data.characterInfo.img+"'alt='캐릭터'/>"
         html +=     "</div>"
@@ -288,7 +378,7 @@ function testF(values){
         html +=             "<div class='characterDetail'>"+characterBasicInfo.luk+"</div>"
         html +=         "</div>"
         html +=     "</div>"
-        html +=     "<div class='detailStatLeft'>"
+        html +=     "<div class='detailStatLeft' id='detailStatLeft'>"
         html +=         "<div class='detailStatLeftLabel'>"
         html +=             "<div class='characterDetail'>데미지</div>"
         html +=             "<div class='characterDetail'>최종 데미지</div>"
@@ -314,7 +404,7 @@ function testF(values){
         html +=             "<div class='characterDetail'>"+characterBasicInfo.jumpPower+"</div>"
         html +=         "</div>"
         html +=     "</div>"
-        html +=     "<div class='detailStatRight'>"
+        html +=     "<div class='detailStatRight' id='detailStatRight'>"
         html +=         "<div class='detailStatRightLabel'>"
         html +=             "<div class='characterDetail'>보스데미지</div>"
         html +=             "<div class='characterDetail'>버프지속시간</div>"
@@ -338,7 +428,7 @@ function testF(values){
         html +=             "<div class='characterDetail'>"+characterBasicInfo.arcaneForce+"</div>"
         html +=         "</div>"
         html +=     "</div>"
-        html +=     "<div class='ability'>"
+        html +=     "<div class='ability' id='ability'>"
         html +=         "<div class='characterDetail'>어빌리티</div>"
         html +=         "<div class='characterDetail'>"+abilitySplit[0]+"</div>"
         html +=         "<div class='characterDetail'>"+abilitySplit[1]+"</div>"
@@ -346,6 +436,8 @@ function testF(values){
         html +=     "</div>"
         html += "</div>"
         html += "<button id='saveGif' onClick=btnSaveGif()>다운로드</button>";
+
+        html += "</div>"
 
         $("#characterEquipInfo").append(html);
     })
@@ -356,6 +448,181 @@ function testF(values){
 function btnSaveGif(){
     console.log("^^");
 
+    /* Media
+    */
+
+    /* IOImage
+    let url = 'http://localhost:8080/api/saveImage'
+    axios.get( url )
+    .then(function() {
+        console.log("dd");
+    })
+    */
+
+    /* html2canvas
+    html2canvas(document.getElementById('characterDetailSub')).then(canvas => {
+        var el = document.getElementById("saveTargetToGif");
+        el.href = canvas.toDataURL("image/png");
+        el.download = 'www.png';
+        el.click();
+    });
+
+    for (var x=0; x<30; x++) {
+        html2canvas(document.getElementById('characterAll')).then(canvas => {
+            var el = document.getElementById("saveTargetToGif");
+            //el.href = canvas.toDataURL("image/png");
+            el.href = canvas.toDataURL("image/png");
+            el.download = 'www.png';
+        });
+        setTimeout(function(){}, 50);
+    }
+    */
+}
+
+function closed(){
+    location.hash = '';
+}
+
+function screenshot(){
+    console.log("ss");
+
+    /*
+
+    var width = window.innerWidth;
+        var height = window.innerHeight;
+
+        var stage = new Konva.Stage({
+        container: 'characterDetailSub',
+        width: width,
+        height: height,
+        });
+
+        var layer = new Konva.Layer();
+        stage.add(layer);
+
+        const canvas = document.querySelector("#characterDetailSub");
+        console.log("-", canvas);
+
+        // use external library to parse and draw gif animation
+        function onDrawFrame(ctx, frame) {
+            // update canvas size
+            canvas.width = frame.width;
+            canvas.height = frame.height;
+            // update canvas that we are using for Konva.Image
+            ctx.drawImage(frame.buffer, 0, 0);
+            // redraw the layer
+            layer.draw();
+        }
+
+        gifler('layout/images/test.gif').frames(canvas, onDrawFrame);
+        var image = new Konva.Image({
+            image: canvas,
+        });
+        layer.add(image);
+
+
+        const stream = canvas.captureStream(25);
+            const recordedChunks = [];
+
+            console.log(stream);
+            const options = { mimeType: "video/webm; codecs=vp9" };
+            const mediaRecorder = new MediaRecorder(stream, options);
+
+            mediaRecorder.ondataavailable = handleDataAvailable;
+            mediaRecorder.start();
+
+            function handleDataAvailable(event) {
+                console.log("data-available");
+
+                if (event.data.size > 0) {
+                    recordedChunks.push(event.data);
+                    console.log(recordedChunks);
+                    download();
+                } else {
+                    console.log("no_data");
+                }
+            }
+
+            function download() {
+                const blob = new Blob(recordedChunks, {
+                    type: "video/webm",
+                });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                document.body.appendChild(a);
+                a.style = "display: none";
+                a.href = url;
+                a.download = "test.webm";
+                a.click();
+                window.URL.revokeObjectURL(url);
+            }
+
+            // demo: to download after 9sec
+            setTimeout((event) => {
+                console.log("stopping");
+                mediaRecorder.stop();
+            }, 3000);
+            
+    */
+
+
+    /*
+    html2canvas(document.body).then(canvas => {
+        var el = document.getElementById("saveTargetToGif");
+        el.href = canvas.toDataURL("image/png");
+        el.download = 'www.png';
+        el.click();
+    });
+
+
+    html2canvas(document.body).then(
+        function(canvas) { //전체 화면 캡쳐
+
+            const stream = canvas.captureStream(25);
+            const recordedChunks = [];
+
+            console.log(stream);
+            const options = { mimeType: "video/webm; codecs=vp9" };
+            const mediaRecorder = new MediaRecorder(stream, options);
+
+            mediaRecorder.ondataavailable = handleDataAvailable;
+            mediaRecorder.start();
+
+            function handleDataAvailable(event) {
+                console.log("data-available");
+
+                if (event.data.size > 0) {
+                    recordedChunks.push(event.data);
+                    console.log(recordedChunks);
+                    download();
+                } else {
+                    console.log("no_data");
+                }
+            }
+
+            function download() {
+                const blob = new Blob(recordedChunks, {
+                    type: "video/webm",
+                });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                document.body.appendChild(a);
+                a.style = "display: none";
+                a.href = url;
+                a.download = "test.webm";
+                a.click();
+                window.URL.revokeObjectURL(url);
+            }
+
+            // demo: to download after 9sec
+            setTimeout((event) => {
+                console.log("stopping");
+                mediaRecorder.stop();
+            }, 3000);
+
+        }
+    );
+    */
 }
 
 function callItem(data){
@@ -364,7 +631,7 @@ function callItem(data){
     var inputId = document.getElementById(data+"id").innerText;
     console.log(inputId);
 
-    const url = 'http://localhost:8080/api/getMapleBasicInfo';
+    const url = 'https://localhost:8080/api/getMapleBasicInfo';
     console.log(inputId, url);
 
     axios.get( url, {params:{id:inputId, buttonChk:'조회'}})
@@ -435,7 +702,7 @@ function createProfile(data){
 function updateDiv(data){
     console.log("update");
 
-    const url = 'http://localhost:8080/api/getMapleBasicInfo';
+    const url = 'https://localhost:8080/api/getMapleBasicInfo';
     var inputId = data.split('_')[0];
     console.log(inputId, url);
 

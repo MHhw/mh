@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -110,5 +113,32 @@ public class characterCardController {
         log.info(j.toString());
 
         return j.toString();
+    }
+
+    @GetMapping("api/saveImage")
+    public void saveCharacterInfo() throws IOException {
+        try{
+            String path = System.getProperty("user.dir");
+            System.out.println(path);
+
+            BufferedImage image1 = ImageIO.read(new File(path+"/src/main/resources/static/layout/images/gif/gif5.gif"));
+            BufferedImage image2 = ImageIO.read(new File(path+"/src/main/resources/static/layout/images/gif/gif2.gif"));
+
+            int width  = Math.max(image1.getWidth(), image2.getWidth());
+            int height = image1.getHeight() + image2.getHeight();
+
+            BufferedImage mergeImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+            Graphics2D graphics = (Graphics2D) mergeImg.getGraphics();
+
+            graphics.setBackground(Color.WHITE);
+            graphics.drawImage(image1, 0,0,null);
+            graphics.drawImage(image2, 0,image1.getHeight(), null);
+
+            ImageIO.write(mergeImg, "gif", new File(path+"/src/main/resources/static/layout/images/mergewwww.gif"));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        System.out.println("www");
     }
 }
