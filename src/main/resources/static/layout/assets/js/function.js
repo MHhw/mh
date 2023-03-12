@@ -1,13 +1,15 @@
 
+// ******************************************************** //
+// 캐릭터 검색
+// 캐릭터 이름 입력 후 검색버튼 클릭 & 엔터
 console.log("ww");
 document.querySelector('#characterName').addEventListener('keypress', function (e) { if (e.key === 'Enter') { send(); } });
 
+// 캐릭터 정보 조회
 function send() {
     console.log("send~");
 
     var inputId = document.getElementById("characterName").value;
-//    var inputId = '명회';
-
     document.getElementById("characterName").value = '';
 
     const url = 'https://localhost:8080/api/getMapleBasicInfo';
@@ -17,12 +19,11 @@ function send() {
     .then(function(res) {
         console.log(res);
         console.log("dd", res.data);
-
         makeDiv(res.data)
     })
-
 }
 
+// 캐릭터 카드 생성
 function makeDiv(data){
     console.log("makeDiv");
     var d = data;
@@ -57,8 +58,145 @@ function makeDiv(data){
 }
 
 // ******************************************************** //
-// test //
 
+//let preview = document.getElementById("preview");
+//let recording = document.getElementById("recording");
+//let startButton = document.getElementById("startButton");
+//let stopButton = document.getElementById("stopButton");
+//let downloadButton = document.getElementById("downloadButton");
+//let logElement = document.getElementById("log");
+
+let recordingTimeMS = 8000;
+
+function log(msg) {ㄴ
+  logElement.innerHTML += `${msg}\n`;
+}
+
+function wait(delayInMS) {
+  return new Promise((resolve) => setTimeout(resolve, delayInMS));
+}
+
+function st1Recording(){
+    console.log("+++", recordingTimeMS, "+++");
+    let preview = document.getElementById("preview");
+    let recording = document.getElementById("recording");
+    let startButton = document.getElementById("startButton");
+    let stopButton = document.getElementById("stopButton");
+    let downloadButton = document.getElementById("downloadButton");
+
+    navigator
+          .mediaDevices
+          .getDisplayMedia({ video: true
+                        , audio: false
+                        , preferCurrentTab:true
+
+                         })
+          .then((stream) => {
+            preview.srcObject = stream;
+            downloadButton.href = stream;
+            preview.captureStream =
+            preview.captureStream || preview.mozCaptureStream;
+            return new Promise((resolve) => (preview.onplaying = resolve));
+          })
+          .then(() => startRecording(preview.captureStream(), recordingTimeMS))
+          .then((recordedChunks) => {
+            let recordedBlob = new Blob(recordedChunks, { type: "video/mp4" });
+            recording.src = URL.createObjectURL(recordedBlob);
+            downloadButton.href = recording.src;
+            downloadButton.download = "RecordedVideo.mp4";
+
+            console.log(
+              `Successfully recorded ${recordedBlob.size} bytes of ${recordedBlob.type} media.`
+            );
+          })
+          .catch((error) => {
+            if (error.name === "NotFoundError") {
+              console.log("Camera or microphone not found. Can't record.");
+            } else {
+              console.log(error);
+            }
+          });
+}
+
+function st2Recording(){
+    stop(preview.srcObject);
+}
+
+function startRecording(stream, lengthInMS) {
+  let recorder = new MediaRecorder(stream);
+  let data = [];
+
+  recorder.ondataavailable = (event) => data.push(event.data);
+  recorder.start();
+  console.log(`${recorder.state} for ${lengthInMS / 1000} seconds…`);
+
+  let stopped = new Promise((resolve, reject) => {
+    recorder.onstop = resolve;
+    recorder.onerror = (event) => reject(event.name);
+  });
+
+  let recorded = wait(lengthInMS).then(() => {
+    if (recorder.state === "recording") {
+      recorder.stop();
+    }
+  });
+
+  return Promise.all([stopped, recorded]).then(() => data);
+}
+
+function stop(stream) {
+  stream.getTracks().forEach((track) => track.stop());
+}
+
+/*
+startButton.addEventListener(
+  "click",
+  () => {
+    navigator.mediaDevices
+      .getUserMedia({
+        video: true,
+        audio: true,
+      })
+      .then((stream) => {
+        preview.srcObject = stream;
+        downloadButton.href = stream;
+        preview.captureStream =
+          preview.captureStream || preview.mozCaptureStream;
+        return new Promise((resolve) => (preview.onplaying = resolve));
+      })
+      .then(() => startRecording(preview.captureStream(), recordingTimeMS))
+      .then((recordedChunks) => {
+        let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
+        recording.src = URL.createObjectURL(recordedBlob);
+        downloadButton.href = recording.src;
+        downloadButton.download = "RecordedVideo.webm";
+
+        log(
+          `Successfully recorded ${recordedBlob.size} bytes of ${recordedBlob.type} media.`
+        );
+      })
+      .catch((error) => {
+        if (error.name === "NotFoundError") {
+          log("Camera or microphone not found. Can't record.");
+        } else {
+          log(error);
+        }
+      });
+  },
+  false
+);
+
+stopButton.addEventListener(
+  "click",
+  () => {
+    stop(preview.srcObject);
+  },
+  false
+);
+*/
+
+// ******************************************************** //
+// screen capture api test1 (실패)
 // 화면캡쳐(video)를 시작하는 함수
 async function startCapture() {
     const videoElement = document.querySelector('#video')
@@ -107,12 +245,48 @@ async function takeSnapshot() {
     const image = await imageCapture.grabFrame()
 }
 
-//startButton.addEventListener('click', startCapture)
-//stopButton.addEventListener('click', stopCapture)
-//snapshotButton.addEventListener('click', takeSnapshot)
 
 // ******************************************************** //
+// 프로필 생성 테스트 test4
+function testFFF(values){
 
+    console.log("makeVideo test");
+
+    $("#characterEquipInfo2").empty();
+    html = '';
+
+    html += "<div id='characterDetailSub'>"
+    html +=     "<h2>캐릭터 프로필</h2>"
+    html +=     "<div class='characterStat'>"
+    html +=     "<img src='layout/images/gif/gif5.gif' alt='이미지'/>"
+    html +=     "<img src='layout/images/pic1.jpg' alt='이미지'/>"
+    html +=     "<img src='layout/images/weapon.png' alt='이미지'/>"
+    html +=     "<img src='layout/images/test.gif' alt='이미지'/>"
+    html +=     "<div class='characterDetail'>wwwww</div>"
+    html +=     "</div>"
+    html += "</div>"
+    html += "<button id='saveGif' onClick=screenshot()>다운로드</button>";
+    html += "<button id='closed' onClick=closed()>close</button>";
+
+    html += "<div class='left1'>"
+    html +=   "<button id='startButton' onClick=st1Recording()>Start Recording</button>";
+    html +=   "<h2>Preview</h2>"
+    html +=   "<video id='preview' width='160' height='120' autoplay muted></video>"
+    html += "</div>"
+
+    html+= "<div class='right1'>"
+    html +=  "<button id='stopButton' onClick=st2Recording()>Stop Recording</button>";
+    html+=   "<h2>Recording</h2>"
+    html+=   "<video id='recording' width='160' height='120' controls></video>"
+    html+=   "<a id='downloadButton' class='button'> Download </a>"
+    html+= "</div>"
+
+    $("#characterEquipInfo2").append(html);
+
+    location.href = '#characterEquipInfo2';
+}
+
+// 프로필 생성 테스트 test3
 function testFF(values){
 
     console.log("makeVideo test");
@@ -145,6 +319,7 @@ function testFF(values){
     location.href = '#characterEquipInfo2';
 }
 
+// 프로필 생성 테스트 test1, test2
 function testF(values){
      console.log("callItem");
 
@@ -445,6 +620,8 @@ function testF(values){
     location.href = '#characterEquipInfo';
 }
 
+// ******************************************************** //
+// gif 만들기 시도 (실패)
 function btnSaveGif(){
     console.log("^^");
 
@@ -477,10 +654,6 @@ function btnSaveGif(){
         setTimeout(function(){}, 50);
     }
     */
-}
-
-function closed(){
-    location.hash = '';
 }
 
 function screenshot(){
@@ -562,7 +735,7 @@ function screenshot(){
                 console.log("stopping");
                 mediaRecorder.stop();
             }, 3000);
-            
+
     */
 
 
@@ -625,6 +798,8 @@ function screenshot(){
     */
 }
 
+// ******************************************************** //
+// 캐릭터카드 상세버튼
 function callItem(data){
     console.log("callItem");
 
@@ -693,12 +868,14 @@ function callItem(data){
     location.href = '#characterEquipInfo';
 }
 
+// 캐릭터카드 생성버튼
+// (gif 만드는거 끝나면 상세버튼 제거하고 모달창 생성해서 다운로드 할 수 있도록 만들기)
 function createProfile(data){
     console.log("createProfile");
     console.log(data);
-
 }
 
+// 캐릭터카드 갱신버튼
 function updateDiv(data){
     console.log("update");
 
@@ -725,9 +902,18 @@ function updateDiv(data){
 //    document.getElementById(data.characterInfo.name);
 }
 
-
+// 캐릭터카드 제거버튼
 function btnRemove(element){
     console.log("remove", element);
     document.getElementById(element).remove();
     location.hash = '';
 }
+
+// ******************************************************** //
+// close 버튼
+function closed(){
+    location.hash = '';
+
+}
+
+// ******************************************************** //
