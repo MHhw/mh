@@ -1,89 +1,90 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>MapleStory Utility</title>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="layout/assets/css/main3.css" />
-	</head>
+<head>
+  <title>MapleStory Utility</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="layout/assets/css/main3.css" />
+</head>
 
-	<body class="is-preload">
+<body class="is-preload">
 
-		<div class="left"></div>
+<div class="left"></div>
 
-		<!-- Wrapper -->
-		<div id="wrapper">
+<!-- Wrapper -->
+<div id="wrapper">
 
-			<!-- Header -->
-			<header id="header">
-				<div class="content">
-					<div class="inner">
-						<h2>MapleStory Utility</h2>
-						<div class="character">
-							<div>
-								<p>캐릭터를 검색하세요.</br>(처음 검색 시 약 30초 소요)</br></p>
-								<input type="text" id="characterName" style="width:250px">
-								<input type="button" id="characterBtn" value="검색" onclick="send();">
-							</div>
-						</div>
-					</div>
+  <!-- Header -->
+  <header id="header">
+    <div class="content">
+      <div class="inner">
+        <h2>MapleStory Utility</h2>
+        <div class="character">
+          <div>
+            <p>캐릭터를 검색하세요.</br>(처음 검색 시 약 30초 소요)</br></p>
+            <input type="text" id="characterName" style="width:250px">
+            <input type="button" id="characterBtn" value="검색" onclick="send();">
+          </div>
+        </div>
+      </div>
 
-		<!--			 <nav> <ul> <li><a href='#characterEquipInfo' onclick="">test</a></li> </ul> </nav>-->
-					<nav> <ul> <li><a onclick="testF(1)">test1</a></li> </ul> </nav>
-					<nav> <ul> <li><a onclick="testF(2)">test2</a></li> </ul> </nav>
-					<nav> <ul> <li><a onclick="testFF(3)">test3</a></li> </ul> </nav>
-					<div class="characterInfo"></div>
-				</div>
+      <!--			 <nav> <ul> <li><a href='#characterEquipInfo' onclick="">test</a></li> </ul> </nav>-->
+      <nav> <ul> <li><a onclick="testF(1)">test1</a></li> </ul> </nav>
+      <nav> <ul> <li><a onclick="testF(2)">test2</a></li> </ul> </nav>
+      <nav> <ul> <li><a onclick="testFF(3)">test3</a></li> </ul> </nav>
+      <nav> <ul> <li><a onclick="testFFF(4)">test4</a></li> </ul> </nav>
+      <div class="characterInfo"></div>
+    </div>
 
-				<nav>
-					<ul>
-						<li><a href="#guide">사용가이드</a></li>
-						<li><a href="#profile">프로필생성</a></li>
-						<li><a href="#searchItem">아이템찾기</a></li>
-						<li><a href="#guildScore">길드컨텐츠분석</a></li>
-					</ul>
-				</nav>
-			</header>
+    <nav>
+      <ul>
+        <li><a href="#guide">사용가이드</a></li>
+        <li><a href="#profile">프로필생성</a></li>
+        <li><a href="#searchItem">아이템찾기</a></li>
+        <li><a href="#guildScore">길드컨텐츠분석</a></li>
+      </ul>
+    </nav>
+  </header>
 
-			<!-- Main -->
-			<div id="main">
+  <!-- Main -->
+  <div id="main">
 
-				<article id="characterEquipInfo">
+    <article id="characterEquipInfo">
 
-				</article>
+    </article>
 
-				<article id="characterEquipInfo2">
+    <article id="characterEquipInfo2">
 
-				</article>
-			</div>
+    </article>
+  </div>
 
-			<!-- <video id='video' autoplay></video> -->
-			<a id="saveTargetToGif"></a>
+  <!-- <video id='video' autoplay></video> -->
+  <a id="saveTargetToGif"></a>
 
-			<!-- Footer -->
-			<footer id="footer">
-				<p class="copyright">&copy; made in 명회 </p>
-			</footer>
-		</div>
+  <!-- Footer -->
+  <footer id="footer">
+    <p class="copyright">&copy; made in 명회 </p>
+  </footer>
+</div>
 
-		<!--<div class="right">ww</div>-->
-		<!-- BG -->
-		<div id="bg"></div>
+<!--<div class="right">ww</div>-->
+<!-- BG -->
+<div id="bg"></div>
 
-		<!-- Scripts -->
+<!-- Scripts -->
 
-		<!--<script src="layout/assets/js/jquery.min.js"></script>-->
+<!--<script src="layout/assets/js/jquery.min.js"></script>-->
 
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script src="layout/assets/js/browser.min.js"></script>
-		<script src="layout/assets/js/breakpoints.min.js"></script>
-		<script src="layout/assets/js/main1.js"></script>
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="layout/assets/js/browser.min.js"></script>
+<script src="layout/assets/js/breakpoints.min.js"></script>
+<script src="layout/assets/js/main1.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-		<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-		<script src="https://unpkg.com/konva@8.4.2/konva.min.js"></script>
-		<script src="https://unpkg.com/gifler@0.1.0/gifler.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="https://unpkg.com/konva@8.4.2/konva.min.js"></script>
+<script src="https://unpkg.com/gifler@0.1.0/gifler.min.js"></script>
 
-		<script src="layout/assets/js/function.js"></script>
-	</body>
+<script src="layout/assets/js/function.js"></script>
+</body>
 
 </html>
